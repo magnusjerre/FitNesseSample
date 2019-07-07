@@ -1,0 +1,7 @@
+!1 Test suite X
+!contents -R2 -g -p -f -h
+
+!*****> Path variable definition and slim-setup
+!path ${java.class.path}
+!define TEST_SYSTEM {slim}
+********!
