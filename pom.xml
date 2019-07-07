@@ -48,6 +48,13 @@
             <artifactId>maven-antrun-plugin</artifactId>
             <version>1.6</version>
         </dependency>
+
+	<!-- BrowserTest fixtures for Fitnesse, letting us test the UI and flow in the browser -->
+        <dependency>
+            <groupId>nl.hsac</groupId>
+            <artifactId>hsac-fitnesse-fixtures</artifactId>
+            <version>4.5.3</version>
+        </dependency>
     </dependencies>
 
     <build>

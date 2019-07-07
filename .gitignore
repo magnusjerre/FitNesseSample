@@ -1,2 +1,5 @@
 .idea/
 target/
+
+JerreFitNesseRoot/**/*.zip
+JerreFitNesseRoot/files/testResults/**/*.xml

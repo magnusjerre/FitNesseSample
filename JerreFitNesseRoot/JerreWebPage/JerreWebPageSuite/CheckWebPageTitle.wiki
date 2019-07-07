@@ -1,0 +1,6 @@
+---
+Test
+---
+|script|browser test         |
+|open  |http://localhost:8081|
+|show  |take screenshot |foto|

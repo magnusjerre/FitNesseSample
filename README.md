@@ -2,6 +2,7 @@
 This project illustrates how to setup and use FitNesse and the FitNesse plugin "BrowserTest" for testing a tiny Spring Boot webapp.
 
 # Structure
+## FitNesse folder structure
 The FitNesse wiki files are located inside `JerreFitnesseRoot` instead of the normal `FitnesseRoot` by specifying `-r ./JerreFitnesseRoot/` in the fitnesse profile. The first time this fitnesse profile is run on a new project necessary files and folders will be generated. If the FitNesse root folder doesn't exist, a sample project will be created. If the root folder does exist, only a subset of the files and folders are created.
 
 The following tree-structure shows which files and folders are generated when the empty root folder `JerreFitnesseRoot` already exists when the FitNesse server is started the first time.
@@ -51,6 +52,19 @@ JerreFitnessRoot
 │   ├── files
 │   ├── properties
 │   └── properties.xml
+```
+
+## BrowserTest and FitNesse folder structure
+The BrowserTest plugin can be included as a pom-dependency, but if we choose to do it that way (instead of the recommended `mvn archetype` generation) we need to manually create a special folder named `webdrivers` in the same folder as `pom.xml` that contains the necessary webdrivers for Selenium. In this project the `webdrivers`-folder was copied from the standalone project `hsac-fitnesse-fixtures-4.5.3-standalone.zip` which can be download from [here](https://github.com/fhoeben/hsac-fitnesse-fixtures/releases/).
+
+```
+├── JerreFitNesseRoot
+├── README.md
+├── mvnw
+├── mvnw.cmd
+├── pom.xml
+├── src
+└── webdrivers
 ```
 
 # Starting the FitNesse server
