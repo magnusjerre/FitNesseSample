@@ -1,8 +1,19 @@
 <html>
     <head>
        <link rel="stylesheet" type="text/css" href="css/styles.css" >
+       <script> 
+        function showDescription() {
+            document.getElementById("description-intro").style = "display: block";
+            setTimeout(function() {
+                document.getElementById("description").innerHTML = "A simple description";
+            }, 3000);
+        }
+       </script>
     </head>
     <body>
-        <h1>Hello World</h1>
+        <h1>Hello World!</h1>
+        <p id="description-intro" style="display: none">In a few seconds a description will be visible</p>
+        <p id="description"></p>
+        <button onclick="showDescription()">Show description</button>
     </body>
 </html>

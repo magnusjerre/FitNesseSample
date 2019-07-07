@@ -1,0 +1,13 @@
+More functions can be found here
+https://github.com/fhoeben/hsac-fitnesse-fixtures/wiki/2.-Slim-Fixtures
+
+Heuristics rules
+https://github.com/fhoeben/hsac-fitnesse-fixtures/wiki/Heuristic-Used-by-Browser-Test
+
+|script          |browser test                        |
+|open            |http://localhost:8081               |
+|show            |take screenshot|show descr          |
+|reject          |is visible     |id=description-intro|
+|click           |Show description                    |
+|ensure          |is visible     |id=description-intro|
+|wait for visible|id=description                      |
