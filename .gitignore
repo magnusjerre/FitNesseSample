@@ -1,5 +1,7 @@
 .idea/
-target/
+*/target/
 
-JerreFitNesseRoot/**/*.zip
-JerreFitNesseRoot/files/testResults/**/*.xml
+fitnesse/FitNesseRoot/**/*.zip
+
+# The files in this folder are generated as part of testreports, no need to commit these.
+fitnesse/FitNesseRoot/files/

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>jerre</groupId>
+        <artifactId>fitnesse-sample</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>jerre</groupId>
+    <artifactId>fitnesse</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <fitnesse.port>8001</fitnesse.port>
+    </properties>
+
+    <dependencies>
+        <!-- Dependency needed a little later -->
+        <dependency>
+            <groupId>jerre</groupId>
+            <artifactId>web-page</artifactId>
+        </dependency>
+
+        <!-- FitNesse main dependency -->
+        <dependency>
+            <groupId>org.fitnesse</groupId>
+            <artifactId>fitnesse</artifactId>
+        </dependency>
+
+        <!-- FitNesse run with maven plugin -->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+        </dependency>
+
+	    <!-- BrowserTest fixtures for Fitnesse, letting us test the UI and flow in the browser -->
+        <dependency>
+            <groupId>nl.hsac</groupId>
+            <artifactId>hsac-fitnesse-fixtures</artifactId>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>fitnesse</id>
+            <properties>
+                <maven.test.skip>true</maven.test.skip>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>start-fitnesse</id>
+                                <phase>test</phase>
+                                <configuration>
+                                    <target>
+                                        <echo taskname="fitnesse" message="Starting FitNesse"/>
+                                        <java classname="fitnesseMain.FitNesseMain" classpathref="maven.runtime.classpath" fork="true">
+                                            <arg line="-p ${fitnesse.port}"/>
+                                            <arg line="-d ."/>
+                                            <!-- -r lets us specify a custom folder / root for the FitNesse wiki files instead of the standard FitNesseRoot folder -->
+                                            <!-- Specifying a custom folder doesn't work well with BrowserTest / hsac-fitnesse-fixtures screenshot functionality -->
+                                            <arg line="-r ./FitNesseRoot/" />
+                                        </java>
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>
+

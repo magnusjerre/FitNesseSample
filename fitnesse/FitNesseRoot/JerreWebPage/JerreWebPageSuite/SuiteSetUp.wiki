@@ -1,11 +1,10 @@
 !contents -R2 -g -p -f -h
 
 |Import                           |
-|nl.hsac.fitnesse.fixture         |
-|nl.hsac.fitnesse.fixture.slim    |
 |nl.hsac.fitnesse.fixture.slim.web|
-|org.openqa.selenium.chrome       |
+|nl.hsac.fitnesse.fixture.slim    |
 
+!*****> Setting up Selenium
 |script                 |map fixture            |
 |set value              |headless   |for|args[0]|
 |set value              |disable-gpu|for|args[1]|
@@ -31,3 +30,4 @@
 |note            |connect to driver at |${GRID_HUB}            |with capabilities     |!{browserName:internet explorer, platform:Windows 8.1, version:11}|
 |note            |connect to driver at |${GRID_HUB}            |with json capabilities|{aut:"io.selendroid.testapp", emulator: true}                     |
 |show            |driver description                                                                                                                     |
+********!
