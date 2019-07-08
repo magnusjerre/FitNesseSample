@@ -3,6 +3,7 @@
 |Import                           |
 |nl.hsac.fitnesse.fixture.slim.web|
 |nl.hsac.fitnesse.fixture.slim    |
+|jerre.fixture                    |
 
 !*****> Setting up Selenium
 |script                 |map fixture            |
@@ -30,4 +31,10 @@
 |note            |connect to driver at |${GRID_HUB}            |with capabilities     |!{browserName:internet explorer, platform:Windows 8.1, version:11}|
 |note            |connect to driver at |${GRID_HUB}            |with json capabilities|{aut:"io.selendroid.testapp", emulator: true}                     |
 |show            |driver description                                                                                                                     |
+********!
+
+!*****> Running the docker container
+|script|shell                     |
+|show  |run docker image          |
+|show  |wait until docker is ready|
 ********!

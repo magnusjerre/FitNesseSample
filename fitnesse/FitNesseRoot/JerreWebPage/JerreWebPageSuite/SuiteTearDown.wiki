@@ -1,0 +1,6 @@
+!contents -R2 -g -p -f -h
+
+!*****> Stopping and removing the docker container
+|script   |shell  |
+|stop docker image|
+********!

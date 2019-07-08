@@ -1,5 +1,7 @@
-|JerreWebPage.JerreWebPageSuite.CheckDescriptionLoadingTest||23:00:24 Sun, Jul 07, 2019|
-|JerreWebPage.JerreWebPageSuite.SuiteSetUp||22:23:07 Sun, Jul 07, 2019|
+|JerreWebPage.JerreWebPageSuite.SuiteSetUp||14:26:35 Mon, Jul 08, 2019|
+|JerreWebPage.JerreWebPageSuite.CheckDescriptionLoadingTest||14:15:09 Mon, Jul 08, 2019|
+|JerreWebPage.JerreWebPageSuite.SuiteTearDown||14:03:08 Mon, Jul 08, 2019|
+|JerreWebPage.JerreWebPageSuite.TearDown||13:37:36 Mon, Jul 08, 2019|
 |JerreWebPage.JerreWebPageSuite.CheckWebPageTitle||21:09:02 Sun, Jul 07, 2019|
 |FrontPage||20:59:23 Sun, Jul 07, 2019|
 |JerreWebPage.JerreWebPageSuite||20:15:23 Sun, Jul 07, 2019|
