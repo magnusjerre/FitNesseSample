@@ -1,8 +1,31 @@
 # Fitnesse Sample
-This project illustrates how to setup and use FitNesse and the FitNesse plugin "BrowserTest" for testing a tiny Spring Boot webapp.
+This project illustrates how to setup and use FitNesse and the FitNesse plugin "BrowserTest" for testing a tiny Spring Boot webapp packaged as a jar which is included in a docker image. The "shell-fixture" (`jerre.fixture.Shell`) is the code-layer letting FitNesse start a docker container that hosts the Spring Boot web app. This project also contains a few tests for a simple "dice game" to illustrate how tests work.
 
 # Structure
-## FitNesse folder structure
+## This project structure
+This project consists of three different maven modules, `dice-game`, `fitnesse`and `web-page`. The `fitnesse` module implements FitNesse tests and fixtures for both `dice-game` and `web-page`. `dice-game` is a basic `jar`-build. `web-page` is a Spring Boot project serving up a simple web page, and is packaged in a jar which is included in the docker image specified by `Dockerfile` in the project root.
+```
+├── Dockerfile
+├── README.md
+├── buildDockerImage.sh
+├── dice-game
+│   ├── pom.xml
+│   ├── src
+│   └── target
+├── fitnesse
+│   ├── FitNesseRoot
+│   ├── pom.xml
+│   ├── src
+│   └── webdrivers
+├── mvnw
+├── mvnw.cmd
+├── pom.xml
+├── startFitnesse.sh
+└── web-page
+    ├── pom.xml
+    ├── src
+```
+## General FitNesse folder structure
 The FitNesse wiki files will by default be located at `FitNesseRoot`, this can be overriden by specifying `-r ./JerreFitnesseRoot/` in the fitnesse profile. The first time this fitnesse profile is run on a new project necessary files and folders will be generated. If the FitNesse root folder doesn't exist, a sample project will be created. If the root folder does exist, only a subset of the files and folders are created.
 
 The following tree-structure shows which files and folders are generated when the empty root folder `FitnesseRoot` already exists when the FitNesse server is started the first time.
@@ -65,4 +88,4 @@ The BrowserTest plugin can be included as a pom-dependency, but if we choose to 
 ```
 
 # Starting the FitNesse server
-`./mvnw clean install -Pfitnesse` starts the fitnesse server.
+Before starting the FitNesse server, ensure that the docker image has been built by running `./buildDockerImage.sh`. The FitNesse server can be started through either `./startFitnesse.sh` or `./mvnw clean install -Pfitnesse` starts the fitnesse server.

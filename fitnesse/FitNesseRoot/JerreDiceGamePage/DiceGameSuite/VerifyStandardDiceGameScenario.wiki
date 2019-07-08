@@ -1,0 +1,28 @@
+---
+Test
+---
+!2 Instantiate the game (build / arrange)
+|script                      |
+|$dice_game=|create dice game|
+
+!2 Play the game (operate / act)
+|script   |$dice_game                                                                                                          |
+|ensure   |add player                              |Magnus                                                                     |
+|note     |Should not be able to add the same player twice                                                                     |
+|reject   |add player                              |Magnus                                                                     |
+|ensure   |add player                              |Sofia                                                                      |
+|check    |start game                              |true                                                                       |
+|note     |To process the multiple-argument method '''takeTurnAndRoll''' we can split the method-name in several ways.         |
+|note     |The only limit seems to be that we must adhere to camel-case. Therefore doing '''taket urn and roll''' isn't allowed|
+|take turn|Magnus                                  |and roll                                   |4                              |
+|take     |Sofia                                   |turn and roll                              |2                              |
+
+!2 Validate the result (check / assert)
+!3 Validate player scores
+|query: $dice_game|
+|username  |score |
+|Magnus    |4     |
+|Sofia     |2     |
+!3 Validate the winner
+|script|$dice_game       |
+|check |get winner|Magnus|

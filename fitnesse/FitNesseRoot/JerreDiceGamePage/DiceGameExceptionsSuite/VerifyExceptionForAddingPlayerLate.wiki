@@ -1,0 +1,15 @@
+---
+Test
+---
+!2 Instantiate the game (build / arrange)
+|script                      |
+|$dice_game=|create dice game|
+
+!2 Play the game (operate / act)
+|script|$dice_game                                                                                           |
+|ensure|add player                  |Magnus                                                                  |
+|ensure|add player                  |Sofia                                                                   |
+|check |start game                  |true                                                                    |
+|note  |To make '''check''' not interpet the last two columns as ''Interposing Function Call'' we add ''';'''|
+|note  |We must include both slashes for the "regex" to work.                                                |
+|check |add player;                 |Yolo                 |EXCEPTION:=~/Game already started/                |

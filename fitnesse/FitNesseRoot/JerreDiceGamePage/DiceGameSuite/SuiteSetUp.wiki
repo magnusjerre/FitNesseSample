@@ -1,0 +1,9 @@
+!contents -R2 -g -p -f -h
+
+!*****> Basic import and factory
+|import       |
+|jerre.fixture|
+
+|library|
+|factory|
+********!

@@ -21,7 +21,8 @@
     </properties>
 
     <modules>
-        <module>web-page</module>
+        <module>dice-game</module>
+	    <module>web-page</module>
         <module>fitnesse</module>
     </modules>
 
@@ -29,7 +30,7 @@
         <dependencies>
             <dependency>
                 <groupId>jerre</groupId>
-                <artifactId>web-page</artifactId>
+                <artifactId>dice-game</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
 
